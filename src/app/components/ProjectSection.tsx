@@ -7,7 +7,7 @@ const projectsData = [
     {
         id: 1,
         title: "React Portfolio Website",
-        description: "Project 1 description",
+        description: "A portfolio of created and upcoming projects",
         image: "/images/coder.png",
         tag: ["All", "Web"],
         gitUrl: "https://github.com/Hugosterberg/portfolio-website",
@@ -15,8 +15,8 @@ const projectsData = [
     },
     {
         id: 2,
-        title: "Bitcoin with Stacks Website",
-        description: "Project 2 description",
+        title: "Bitcoin with Stacks",
+        description: "An upcoming project made on the Bitcoin blockchain",
         image: "/images/stacks-btc.webp",
         tag: ["All", "Web", "Web3/Blockchain", "Bitcoin/Stacks"],
         gitUrl: "/",
@@ -24,8 +24,8 @@ const projectsData = [
     },
     {
         id: 3,
-        title: "Upcoming home automation project",
-        description: "Project 3 description",
+        title: "Home automation assistant",
+        description: "An upcoming project for home automation",
         image: "/images/automation.png",
         tag: ["All", "Automation"],
         gitUrl: "/",
@@ -33,8 +33,8 @@ const projectsData = [
     },
     {
         id: 4,
-        title: "Upcoming 'Infra As Code' project",
-        description: "Project 4 description",
+        title: "'Infra As Code' - Ready to deploy",
+        description: "A potential project to deploy infrastructure",
         image: "/images/iac.png",
         tag: ["All", "IaC"],
         gitUrl: "/",
@@ -49,9 +49,11 @@ const ProjectSection = () => {
         setTag(newTag)
     }
 
-    const filteredProjects = projectsData.filter((project) => {
-        project.tag.includes(tag)
-    })
+    const filteredProjects = projectsData.filter((project) => project.tag.includes(tag))
+
+    // const filteredProjects = projectsData.filter((project) => {
+    //     return project.tag.includes(tag)
+    // })
 
     return (
         <>
@@ -81,7 +83,7 @@ const ProjectSection = () => {
                 />
             </div>
             <div className="grid md:grid-cols-3 gap-8 md:gap-12">
-                {projectsData.map((project) => (
+                {filteredProjects.map((project) => (
                 <ProjectCard 
                     key={project.id} 
                     title={project.title} 
