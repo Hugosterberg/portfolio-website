@@ -1,7 +1,7 @@
 import Link from "next/link"
 // import React from "react"
 
-interface NavLinkProps {
+export interface NavLinkProps {
     href: string
     title: string
 }
